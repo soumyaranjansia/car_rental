@@ -79,15 +79,7 @@ f) Receiver can only request for eligible.
 
 Want to contribute to this project Ping me :).
 
-IF you like this project 😉🙂, you can contribute small amount of money.😇😇
-
-<svg width="100" height="100" xmlns="https://checkout.razorpay.com/v1/payment-button.js">
-<foreignObject width="100" height="100">
-    <div xmlns="https://checkout.razorpay.com/v1/payment-button.js">
-        <ul>
-           <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HqtCwUW8Lwi2aD" async> </script> </form>
-        </ul>
-       
-    </div>
-</foreignObject>
-</svg>
+IF you like this project 😉🙂, you can contribute small amount of mone
+<iframe>
+<form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HqtCwUW8Lwi2aD" async> </script> </form>
+</iframe>
