@@ -79,7 +79,5 @@ f) Receiver can only request for eligible.
 
 Want to contribute to this project Ping me :).
 
-IF you like this project 😉🙂, you can contribute small amount of mone
-<iframe>
-<form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HqtCwUW8Lwi2aD" async> </script> </form>
-</iframe>
+IF you like this project 😉🙂, you can contribute small amount of money it can encourage my work:).
+[Contribute Now](https://rzp.io/i/U6AnGXbI "Contribute to Soumya Ranjan Sia")
