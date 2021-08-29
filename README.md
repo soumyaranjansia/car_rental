@@ -84,10 +84,9 @@ IF you like this project 😉🙂, you can contribute small amount of money.😇
 <foreignObject width="100" height="100">
     <div xmlns="https://checkout.razorpay.com/v1/payment-button.js">
         <ul>
-           
+           <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HqtCwUW8Lwi2aD" async> </script> </form>
         </ul>
        
     </div>
 </foreignObject>
-     <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HqtCwUW8Lwi2aD" async> </script> </form>
 </svg>
