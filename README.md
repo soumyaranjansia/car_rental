@@ -60,6 +60,7 @@ c) Only customer should be able to request for the cars
 d) Only agencies should be able to view car requests
 e) Agencies can not view requests received by other agencies
 f) Agency’s email/username can not registered as customer or viceversa
+
 2. Database design
 a) Should use foreign keys
 b) There should not be any data redundancy
@@ -67,10 +68,16 @@ b) There should not be any data redundancy
 a) Naming convention
 b) Proper indentation
 c) Modular code
+
 4. Bonus
 a) Error handling
 b) OOPS
 c) Framework
 d) GIT
 e) LESS
-f) Receiver can only request for eligibl
+f) Receiver can only request for eligible.
+
+Want to contribute to this project Ping me :).
+
+IF you like this project 😉🙂, you can contribute small amount of money.😇😇
+<form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_HqtCwUW8Lwi2aD" async> </script> </form>
