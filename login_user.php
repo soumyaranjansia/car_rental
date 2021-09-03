@@ -57,7 +57,7 @@ require('connection.inc.php');
 		
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+						Don't have an account? <a href="user_regn.php" class="ml-2">Sign Up</a>
 					</div>
 					<div class="d-flex justify-content-center links">
 						<a href="#">Forgot your password?</a>
@@ -78,7 +78,7 @@ require('connection.inc.php');
       $query_run=mysqli_query($con,$query);
       if(mysqli_num_rows($query_run)>0){
           $_SESSION['usercvgfth']=$_POST['username'];
-          header('location:cars.php');
+          header('location:index.php');
           
       }
       else{

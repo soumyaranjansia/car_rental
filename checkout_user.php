@@ -5,6 +5,7 @@ if(!isset($_SESSION['usercvgfth'])){
     
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,8 +39,8 @@ if(!isset($_SESSION['usercvgfth'])){
       <ul>
         <li><a  href="index.php">Home</a></li>
         <li><a class="active" href="#">Vehicles</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Gallery</a></li>
+        <li><a href="user_order.php">Orders</a></li>
+        <li><a href="">Gallery</a></li>
         <div class="dropdown">
         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    <?php echo $_SESSION['usercvgfth']?>
@@ -58,21 +59,23 @@ if(!isset($_SESSION['usercvgfth'])){
 <table class="table table-bordered" style="background-color:white">
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-<?php if(isset($_POST['rent'])) {
-      $upq="select * from cars";
+<?php if(isset($_POST['rent'])){
+      $id=$_POST['id'];
+      $upq="select * from cars where id='$id'";
       $ruq=mysqli_query($con,$upq);
           while($rpw=mysqli_fetch_array($ruq)){
-            ?>
-
+?>
 <?php echo '<img src="images/'.$rpw['vehicle_image'].'" width="120px" height="100px">'?>
   <h5 class="card-title"><?php echo "Vehicle No:".$rpw['vehicle_nmbr']?></h5>
     <p class="card-text">Rent per Day:<?php echo $rpw['rentpday']?>₹</p>
-    <p class="card-text">DESCRIPTION:<?php echo $rpw['car_desc']?></p>
+    
     <form method="post" action="checkout_user.php">
+    <input type="hidden" name="id" value="<?php echo $rpw['id']?>">
+    <input type="hidden" name="rentpday" value="<?php echo $rpw['rentpday']?>">
     <label for="exampleInputEmail1">Enter Start Date</label>
-    <input type="date" class="form-control" name="from_date" placeholder="DD/MM/YYYY">
+    <input type="date" class="form-control" name="from_date" placeholder="DD/MM/YYYY" required>
     <label for="exampleInputEmail1">Number Of Days</label>
-    <select name="nodays" class="form-select" aria-label="Default select example" >
+    <select name="nodays" class="form-select" aria-label="Default select example" required>
         <option selected>Number Of Days For Rent</option>
           <option value="1">one</option>
              <option value="2">Two</option>
@@ -82,7 +85,15 @@ if(!isset($_SESSION['usercvgfth'])){
                   <option value="6">six</option>
                    <option value="7">seven</option>
     </select>
-    <button type="submit" class="btn btn-primary" name="rent">Rent Car</button>
+    <label for="exampleInputEmail1">Enter District</label>
+    <input type="text" class="form-method" name="dist" required>
+    <label for="exampleInputEmail1">Enter City</label>
+    <input type="text" class="form-method" name="city"required>
+    <label for="exampleInputEmail1">Enter pincode</label>
+    <input type="text" class="form-method" name="pin" required>
+    <label for="exampleInputEmail1">Enter Contact Number</label>
+    <input type="text" class="form-method" name="contact" required>
+    <button type="submit" class="btn btn-primary" name="rent_car">Rent Car</button>
     </form>
 <?php
    }
@@ -95,9 +106,13 @@ if(!isset($_SESSION['usercvgfth'])){
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <?php
-if(isset($_POST['rent'])) {
-    
+if(isset($_POST['rent_car'])){
+    $rentpday=$_POST['rentpday'];
     $id=$_POST['id'];
+    $dist=$_POST['dist'];
+    $city=$_POST['city'];
+    $pin=$_POST['pin'];
+    $contact=$_POST['contact'];
     $trom_date=strtotime($_POST['from_date']);
     $from_date=$_POST['from_date'];
     $nodays=$_POST['nodays'];
@@ -105,11 +120,15 @@ if(isset($_POST['rent'])) {
     $do_date=$trom_date + $day_diff;
     $to_date=date("d/m/Y",$do_date);
     $user=$_SESSION['usercvgfth'];
-    $order="update cars set from_date='$from_date',to_date='$to_date',nodays='$nodays',user='$user' where id='$id'";
+    $payment=$rentpday*$nodays;
+    $t=time();
+    $ts=date("d/m/Y",$t);
+    $car="Rented by".$user;
+    $order="update cars set from_date='$from_date',to_date='$to_date',nodays='$nodays',user='$user',payment='$payment',dist='$dist',city='$city',pin='$pin',contact='$contact',order_date='$ts',status='$car' where id='$id'";
     $order_run=mysqli_query($con,$order);
     if($order_run){
         $_SESSION['ordersydffdf']=$_POST['id'];
-        header('location:dashboard_user.php');
+        header('location:payment_user.php');
     }
     else {
         echo "error".mysqli_error($con);

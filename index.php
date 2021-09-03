@@ -34,22 +34,46 @@ require('connection.inc.php');
       <ul>
         <li><a class="active" href="#">Home</a></li>
         <li><a href="cars.php">Vehicles</a></li>
-        <li><a href="#">Orders</a></li>
-        <li><a href="#">Gallery</a></li>
+        <li><a href="user_order.php">Orders</a></li>
+        <li><a href="">Gallery</a></li>
         <div class="dropdown">
         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   Guest
+        <?php if(isset($_SESSION['usercvgfth'])){ echo "".$_SESSION['usercvgfth']."";
+   }
+   else {
+     echo "Guest";
+   }?>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Profile</a>
-    <a class="dropdown-item" href="logout_user.php">Logout</a>
+    <a class="dropdown-item" href="login_user.php">login</a>
+    <a class="dropdown-item" href="login_agency.php">login(For Staff Only)</a>
+    <a class="dropdown-item" href="logout_user.php"><?php if (isset($_SESSION['usercvgfth'])){echo "logout";
+    }
+    else {
+      echo "";
+    }?></a>
     <a class="dropdown-item" href="#">Raise a Complain</a>
   </div>
 </div>
       </ul>
     </nav>
     <h1>select on vehicle option and start rent a car now</h1>
-
+    <?php
+    if (isset($_SESSION['ordersydffdf']) && $_SESSION['ordersydffdf']!='') {
+      echo '<div class="alert alert-success" role="alert">';
+      echo '<h>'.'Your Order Successfully Placed.'.'&nbsp'.'Your Order id is:'.$_SESSION['ordersydffdf'].'</h>';
+      echo '<br>'.'&nbsp'.'<h>'.'***kindly check the order section***'.'</h>';
+      echo '</div>';
+      unset($_SESSION['ordersydffdf']);
+    }
+    elseif (isset($_SESSION['agencyxyzq']) && $_SESSION['agencyxyzq']!='') {
+      echo '<div class="alert alert-success" role="alert">';
+      echo '<h>'.'Your Registration was Successfull.'.'&nbsp'.'Your user id is:'.'&nbsp'.$_SESSION['agencyxyzq'].'</h>';
+      echo '<br>'.'&nbsp'.'<h>'.'***kindly check in the agency login section***'.'</h>';
+      echo '</div>';
+      unset($_SESSION['agencyxyzq']);
+    }
+    ?>
   </body>
 </html>
 

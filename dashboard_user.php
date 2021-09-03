@@ -35,9 +35,9 @@ if(!isset($_SESSION['usercvgfth'])){
         <i class="fas fa-bars"></i>
       </label>
       <ul>
-        <li><a class="active" href="#">Home</a></li>
+        <li><a class="active" href="index.php">Home</a></li>
         <li><a href="cars.php">Vehicles</a></li>
-        <li><a href="#">Orders</a></li>
+        <li><a href="user_order.php">Orders</a></li>
         <li><a href="#">Gallery</a></li>
         <div class="dropdown">
         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,16 +52,7 @@ if(!isset($_SESSION['usercvgfth'])){
       </ul>
     </nav>
     <h1></h1>
-    <?php
-    if (isset($_SESSION['ordersydffdf']) && $_SESSION['ordersydffdf']!='') {
-      echo '<div class="alert alert-success" role="alert">';
-      echo '<h>'.'Your Order Successfully Placed.Your Order id is:'.$_SESSION['ordersydffdf'].'</h>';
-      echo '<h>'.'kindly check the order section'.'</h>';
-      echo '</div>';
-      unset($_SESSION['ordersydffdf']);
-    }
     
-    ?>
   </body>
 </html>
 

@@ -35,7 +35,7 @@ if(!isset($_SESSION['agencyxy'])){
         <i class="fas fa-bars"></i>
       </label>
       <ul>
-        <li><a class="active" href="#">Home</a></li>
+        <li><a class="active" href="dashboard_agency.php">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Gallery</a></li>
@@ -62,7 +62,7 @@ if(!isset($_SESSION['agencyxy'])){
         
       </div>
       <div class="modal-body">
-      <form method="post" action="editcar.php">
+      <form method="post" action="editcar.php" enctype="multipart/form-data">
         
           <?php 
           if(isset($_POST['edit_btn'])){
@@ -78,28 +78,28 @@ if(!isset($_SESSION['agencyxy'])){
          </div>
          <div class="form-group">
          <label >Vehicle Model</label>
-         <input type="text" class="form-control"  name="vehicle_mdl" placeholder="<?php echo $rpw['vehicle_mdl']?>" required>
+         <input type="text" class="form-control"  name="vehicle_mdl" placeholder="<?php echo $rpw['vehicle_mdl']?>" value="<?php echo $rpw['vehicle_mdl']?>">
          </div>
 
          <div class="form-group">
          <label >Vehicle Number</label>
-         <input type="text" class="form-control" name="vehicle_mdl" placeholder="<?php echo $rpw['vehicle_nmbr']?>" required>
+         <input type="text" class="form-control" name="vehicle_nmbr" placeholder="<?php echo $rpw['vehicle_nmbr']?>" value="<?php echo $rpw['vehicle_nmbr']?>">
          </div>
 
          <div class="form-group">
          <label >Vehicle Image</label>
-         <input type="file" class="form-control" name="vehicle_image" placeholder="" required>
+         <input type="file" class="form-control" name="vehicle_image" value="<?php echo $rpw['vehicle_image']?>">
          <tr><td><?php echo '<img src="images/'.$rpw['vehicle_image'].'" width="120px" height="100px">'?></td></tr>
          </div>
 
          <div class="form-group">
          <label >Seat Capacity</label>
-         <input type="text" class="form-control" name="seat_capacity" placeholder="<?php echo $rpw['seat_capacity']?>" required>
+         <input type="text" class="form-control" name="seat_capacity" placeholder="<?php echo $rpw['seat_capacity']?>" value="<?php echo $rpw['seat_capacity']?>">
          </div>
 
          <div class="form-group">
          <label >Rent Per Day</label>
-         <input type="text" class="form-control" name="rentpday" placeholder="<?php echo $rpw['rentpday']?>" required>
+         <input type="text" class="form-control" name="rentpday" placeholder="<?php echo $rpw['rentpday']?>" value="<?php echo $rpw['rentpday']?>">
          </div>
 
          <div class="form-group">
@@ -108,7 +108,7 @@ if(!isset($_SESSION['agencyxy'])){
          </div>
          <div class="form-group">
          <label >Status</label>
-         <input type="text" class="form-control" name="status" placeholder="<?php echo $rpw['status']?>" required>
+         <input type="text" class="form-control" name="status" placeholder="<?php echo $rpw['status']?>" value="<?php echo $rpw['status']?>">
          </div>  
          
 

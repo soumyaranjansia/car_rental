@@ -34,15 +34,24 @@ require('connection.inc.php');
       <ul>
         <li><a  href="index.php">Home</a></li>
         <li><a class="active" href="cars.php">Vehicles</a></li>
-        <li><a href="#">Orders</a></li>
-        <li><a href="#">Gallery</a></li>
+        <li><a href="user_order.php">Orders</a></li>
+        <li><a href="">Gallery</a></li>
         <div class="dropdown">
         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   Guest
+   <?php if(isset($_SESSION['usercvgfth'])){ echo "".$_SESSION['usercvgfth']."";
+   }
+   else {
+     echo "Guest";
+   }?>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Profile</a>
-    <a class="dropdown-item" href="logout_user.php">Logout</a>
+  <a class="dropdown-item" href="login_user.php">login</a>
+    <a class="dropdown-item" href="login_agency.php">login(For Staff Only)</a>
+    <a class="dropdown-item" href="logout_user.php"><?php if (isset($_SESSION['usercvgfth'])){echo "logout";
+    }
+    else {
+      echo "";
+    }?></a>
     <a class="dropdown-item" href="#">Raise a Complain</a>
   </div>
 </div>
@@ -63,7 +72,7 @@ require('connection.inc.php');
 <?php echo '<img src="images/'.$rpw['vehicle_image'].'" width="120px" height="100px">'?>
   <div class="card-body">
   <h5 class="card-title"><?php echo "Vehicle No:".$rpw['vehicle_nmbr']?></h5>
-    <p class="card-text">Rent per Day:<?php echo $rpw['rentpday']?>₹</p>
+    <p class="card-text">Rent per Day:<?php echo '₹'.'&nbsp'.$rpw['rentpday']."/-"?></p>
     <p class="card-text">DESCRIPTION:<?php echo '<br>'?><?php echo $rpw['car_desc']?></p>
     <form action="checkout_user.php" method="post">
     <input type="hidden" name="id" value="<?php echo $rpw['id'];?>">

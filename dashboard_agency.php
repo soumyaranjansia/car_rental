@@ -35,7 +35,7 @@ if(!isset($_SESSION['agencyxy'])){
         <i class="fas fa-bars"></i>
       </label>
       <ul>
-        <li><a class="active" href="#">Home</a></li>
+        <li><a class="active" href="dashboard_agency.php">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Gallery</a></li>
@@ -114,8 +114,6 @@ if(!isset($_SESSION['agencyxy'])){
 </div>
 <!-- END OF ADD CAR DETAILS-->
 
-
-
 <!-- Delete Modal for Delete the value of cars table-->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="eDITModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -136,6 +134,7 @@ if(!isset($_SESSION['agencyxy'])){
     </div>
   </div>
 </div>
+
 
 <!--starting of cars dashboard table-->
 
@@ -203,7 +202,11 @@ if(!isset($_SESSION['agencyxy'])){
                      <input type="hidden" name='id' value="<?php echo $row['id'] ?>">
                    <th><button type="delete" name="delete" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"> DELETE </button></th>
                    </form>
-                  </tr>
+                   <form action="view_agency.php" method="post">
+                     <input type="hidden" name='id' value="<?php echo $row['id'] ?>">
+                   <th><button type="delete" name="view" class="btn btn-success" > VIEW </button></th>
+                   </form>
+                   </tr>
               </tbody>
     <?php
         }
