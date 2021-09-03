@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Aug 28, 2021 at 01:58 PM
+-- Generation Time: Sep 03, 2021 at 05:59 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -41,16 +41,24 @@ CREATE TABLE `cars` (
   `nodays` varchar(200) NOT NULL,
   `from_date` varchar(50) NOT NULL,
   `to_date` varchar(50) NOT NULL,
-  `user` varchar(200) NOT NULL
+  `user` varchar(200) NOT NULL,
+  `dist` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `pin` varchar(50) NOT NULL,
+  `contact` varchar(50) NOT NULL,
+  `payment_method` varchar(200) NOT NULL,
+  `payment` varchar(200) NOT NULL,
+  `order_date` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`id`, `vehicle_mdl`, `vehicle_nmbr`, `vehicle_image`, `seat_capacity`, `rentpday`, `status`, `car_desc`, `date`, `vehicle_agency`, `nodays`, `from_date`, `to_date`, `user`) VALUES
-(1, '012344', 'OD29A8271', '', '4', 200, 'available', 'fully a/c complex with digital seat', '2021-08-20 05:21:31', 'rahulsia', '', '', '01/01/1970', 'rohitsia'),
-(9, '01234', 'ODASR23', 'car3.png', '4', 150, 'AVILABLE', '', '2021-08-21 22:36:28', 'rahulsia', '', '', '01/01/1970', 'rohitsia');
+INSERT INTO `cars` (`id`, `vehicle_mdl`, `vehicle_nmbr`, `vehicle_image`, `seat_capacity`, `rentpday`, `status`, `car_desc`, `date`, `vehicle_agency`, `nodays`, `from_date`, `to_date`, `user`, `dist`, `city`, `pin`, `contact`, `payment_method`, `payment`, `order_date`) VALUES
+(1, '01234', 'OD9A8762', 'Transpo_G70_TA-518126.jpg', '4', 200, 'AVAILABLE', 'fully a/c complex with digital seat', '2021-08-20 05:21:31', 'rahulsia', '7', '2021-09-10', '17/09/2021', 'rohitsia', 'kendrapara', 'Berhampur', '760007', '07978 438558', 'cash on delhivery', '1400', '03/09/2021'),
+(9, '01234', 'ODASR23', 'car3.png', '4', 150, 'AVILABLE', '', '2021-08-21 22:36:28', 'rahulsia', '5', '2021-09-04', '09/09/2021', 'rohitsia', 'kendrapara', 'Bhopal', '470113', '07894 592658', 'cash on delhivery', '750', ''),
+(11, '01235', 'ODBSR23', 'Transpo_G70_TA-518126.jpg', '4', 150, 'AVILABLE', '', '2021-09-03 03:20:36', 'rahulsia', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -74,7 +82,7 @@ CREATE TABLE `car_agency` (
 --
 
 INSERT INTO `car_agency` (`id`, `agent_name`, `agent_email`, `username`, `agent_pass`, `agent_phone`, `agent_address`, `agent_photo`) VALUES
-(1, 'rahul sia', '', 'rahulsia', '1234', '7978438558', 'tangantailaNSAHDAHDAKJHDADHAKDHAD', '');
+(1, 'rahul sia', 'rahulsia2000@gmail.com', 'rahulsia', '1234', '7978438558', 'tangantailaNSAHDAHDAKJHDADHAKDHAD', '');
 
 -- --------------------------------------------------------
 
@@ -94,6 +102,7 @@ CREATE TABLE `secret` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `username` varchar(200) NOT NULL,
@@ -106,8 +115,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `phone`, `email`, `username`, `pass`, `address`, `photo`) VALUES
-(1, '7894592658', 'rohitsia2000@gmail.com', 'rohitsia', '1234', 'ewrwrrrwrwr', '');
+INSERT INTO `user` (`id`, `name`, `phone`, `email`, `username`, `pass`, `address`, `photo`) VALUES
+(1, '', '7894592658', 'rohitsia2000@gmail.com', 'rohitsia', '1234', 'ewrwrrrwrwr', ''),
+(6, 'Soumya ranjan sia', '07978 438558', 'soumyasiya797@gmail.com', 'test@gmail.com', 'Test@123', 'Mandiapalli,happy living hostel,ganjam', '');
 
 --
 -- Indexes for dumped tables
@@ -145,13 +155,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `car_agency`
 --
 ALTER TABLE `car_agency`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `secret`
@@ -163,7 +173,7 @@ ALTER TABLE `secret`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
