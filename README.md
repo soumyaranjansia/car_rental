@@ -1,6 +1,6 @@
 # car_rental System ![image](https://user-images.githubusercontent.com/80354551/131217197-4bcb4e2e-9297-4681-a9ca-10853c8956ee.png)
 
-#COMPLETED THIS PROJECT IN 24 HOUR(INCLUDING REST TIME)# IN 3 SEP 2021
+#COMPLETED THIS PROJECT IN 24 HOURS(INCLUDING REST TIME)# IN 3 SEP 2021
 car rental system
 ### srs document ###
 Car Rental Agency
