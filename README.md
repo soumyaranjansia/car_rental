@@ -81,3 +81,4 @@ Want to contribute to this project Ping me :).
 
 IF you like this project 😉🙂, you can contribute small amount of money it can encourage my work:).
 [Contribute Now](https://rzp.io/i/U6AnGXbI "Contribute to Soumya Ranjan Sia")
+Copyright Reserved © 2021 Soumya Ranjan Sia
